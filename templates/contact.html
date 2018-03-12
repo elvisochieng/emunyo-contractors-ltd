@@ -1,0 +1,146 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+{% block css %}
+<link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Start: Header Section 
+==================================================-->
+    <div class="header_topbar">
+        <!-- Logo -->
+        <div class="container">
+            <div class="row">
+                <div class="header_top_left">
+                    <ul class="header_socil list-inline pull-left">
+                        <li>
+                            <a href="#" class="fab fa-facebook fa-2x"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fab fa-twitter fa-2x"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fab fa-linkedin fa-2x"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fab fa-google-plus fa-2x"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header_top_right list-unstyled">
+                    <ul>
+                        <li><i class="fa fa-envelope"></i>emunyocontractorsltd@gmail.com</li>
+                        <li><i class="fa fa-phone"></i>+256 483 660 162</li>
+                        <li><i class="fa fa-clock"></i>Mon-Fri: 8:00 - 16:00 </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Header Info -->
+
+    <!-- Start: header navigation -->
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="logo col-md-2">
+                    <a href="#."><img class="img-responsive" src="{% static 'images/Companylogo.bmp' %}" alt="">
+                    </a>
+                </div>
+                <div class="col-md-7 col-md-offset-1">
+                    <div id="navigation">
+                        <ul>
+                            <li><a class="active" href="{% url 'home' %}">Home</a></li>
+                            <li class=""><a href="{% url 'about' %}" title="page">About</a></li>
+                            <li class=""><a href="{% url 'posts:list' %}" title="blog">Blog</a></li>
+                            <li><a href="{% url 'photos:button_list' %}" title="Gallery">Gallery</a></li>
+                            <li><a href="{% url 'contact' %}" title="Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- End: social-nav -->
+            </div>
+            <!--/ row -->
+        </div>
+        <!--/ container -->
+    </div>
+    <!-- End: header navigation -->
+
+    <!-- header -->
+    <header id="page-top" class="blog-banner">
+        <!-- Start: Header Content -->
+        <div class="container" id="blog">
+            <div class="row blog-header text-center wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-sm-12">
+                    <!-- Headline Goes Here -->
+                    <h4><a href="index-2.html"> Home </a> / Contact </h4>
+                    <h3>Contact Us</h3>
+                </div>
+            </div>
+            <!-- End: .row -->
+        </div>
+        <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+
+    <!-- End: Header Section
+==================================================-->
+
+    <!-- Start: contact  Section 
+==================================================-->
+    <section class="contact-section">
+        <div class="container">
+                <!-- Start: Heading -->
+                <div class="base-header">
+                    <h3>Get in <span class="ylow_clr">Touch</span></h3>
+                    
+                </div>
+                <!-- End:  heading -->
+            <!--  Content  -->
+            <div class="inner-contact">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <!--  Contact Form  -->
+                        <div class="contact-form">
+                            <form method="post" action="http://fagtheme.xyz/dalan/mailer.php" id="contact-form">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <input class="con-field" name="name" id="name" type="text" placeholder="Name">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input class="con-field" name="email" id="email" type="text" placeholder="Email">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input class="con-field" name="messageForm" id="messageForm" type="text" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <textarea class="con-field" name="message" id="message" rows="6" placeholder="Your Message"></textarea>
+                                        <div class="submit-area">
+                                            <input type="submit" id="submit-contact" class="btn-alt" value="Send Message">
+                                            <div id="msg" class="message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End:Contact Form  -->
+                    </div>
+                </div>
+                <!-- row /- -->
+            </div>
+            <!-- End:Content  -->
+        </div>
+        <!-- container /- -->
+    </section>
+    
+    <div id="map" class="map-container"></div>
+    
+    <!--End Contact Section
+==================================================-->
+
+{% endblock %}
