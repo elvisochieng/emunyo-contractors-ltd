@@ -1,0 +1,145 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+{% block css %}
+
+<link href="{% static 'css/gallery-grid.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- Start: Header Section 
+==================================================-->
+    <div class="header_topbar">
+        <!-- Logo -->
+        <div class="container">
+            <div class="row">
+                <div class="header_top_left">
+                    <ul class="header_socil list-inline pull-left">
+                        <li>
+                            <a href="#" class="fab fa-facebook fa-2x"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fab fa-twitter fa-2x"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fab fa-linkedin fa-2x"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fab fa-google-plus fa-2x"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header_top_right list-unstyled">
+                    <ul>
+                        <li><i class="fa fa-envelope"></i>emunyocontractorsltd@gmail.com</li>
+                        <li><i class="fa fa-phone"></i>+256 483 660 162</li>
+                        <li><i class="fa fa-envelope"></i>Mon-Fri: 8:00 - 16:00 </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Header Info -->
+
+    <!-- Start: header navigation -->
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="logo col-md-2">
+                    <a href="#."><img class="img-responsive" src="{% static 'images/Companylogo.bmp' %}" alt="">
+                    </a>
+                </div>
+                <div class="col-md-7 col-md-offset-1">
+                    <div id="navigation">
+                        <ul>
+                            <li><a class="active" href="{% url 'home' %}">Home</a></li>
+                            <li class=""><a href="{% url 'about' %}" title="page">About</a></li>
+                            <li class=""><a href="{% url 'posts:list' %}" title="blog">Blog</a></li>
+                            <li><a href="{% url 'photos:button_list' %}" title="Gallery">Gallery</a></li>
+                            <li><a href="{% url 'contact' %}" title="Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- End: social-nav -->
+            </div>
+            <!--/ row -->
+        </div>
+        <!--/ container -->
+    </div>
+    <!-- End: header navigation -->	
+
+	<div class="container gallery-container tz-gallery">
+
+		<h1>Emunyo Contractors Limited </h1>
+
+   		 <p class="page-description text-center">PHOTOS</p>
+		<div class="row">
+			{% for photo in photos %}
+				<div class="col-lg-3 col-md-3 col-sm-12">
+					{% if photo.category == 'city_photo' %}
+                    <a href="">
+                        <img src="{{ photo.image.url }}" class="img-responsive img-thumbnail">
+                        <h5><a href="">{{ photo.title }}</a></h5>
+                        <h5><a href="">{{ photo.date }}</a></h5>
+                    </a>
+					 
+					
+					<!-- Button trigger modal -->
+					 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">view</button>
+					
+					<!-- Modal -->
+					 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">{{ photo.title }}</h4>
+					      </div>
+					      <div class="modal-body">
+					        <img src="{{ photo.image.url }}" class="img-responsive">
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<br> 
+	<!--<div class="container gallery-container">
+
+    <h1>Emunyo Contractors Limited - Gallery</h1>
+
+    <p class="page-description text-center">PHOTOS</p>
+    
+    <div class="tz-gallery">
+
+        <div class="row">
+        	{% for photo in photos %}
+        	{% if photo.image %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="{{ photo.image.url }}">
+                        <img src="{{ photo.image.url }}" alt="Park">
+                    </a>
+                    <div class="caption">
+                        <h3>{{ photo.title }}</h3>
+                        <p>{{ photo.date }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+    </div>
+
+</div>-->
+
+
+{% endblock %}
